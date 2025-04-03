@@ -28,6 +28,7 @@ function App() {
           <div className="top">
             <div className="searchbar">
               <h1>Weather App</h1>
+              <h2></h2>
               <input
               value = {location}
               onChange={event => setLocation(event.target.value)} 
@@ -37,21 +38,18 @@ function App() {
 
             </div>
             <div className="location">
+              {data.location ? <h2>Aktualna pogoda {data.current.last_updated}</h2> :null}
               {data.location ? <p>Miasto:{data.location.name}</p> : null}
             </div>
             <div className="temp">
               {data.current ? <p>Temperatura:{data.current.temp_c}</p> : null}
             </div>
-            <div className="opis">
+            <div className="temp_feels">
               {data.current ? <p>Odczuwalna temperatura:{data.current.feelslike_c}</p> :null}
             </div>
           </div>
           <div className="bot">
-              <div className="odczuwalnatemp">
-              </div>
-              <div className="wilgotosc">
-                {data.current ? <p>Wilgotność:{data.current.humidity}</p> : null}
-              </div>
+              
           </div>
       </div>
     </div>
