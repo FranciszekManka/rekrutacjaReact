@@ -9,18 +9,17 @@ function App() {
   const[data,setData] = useState('');
   const[location,setLocation] = useState('');
 
-
+  let steps = 5;
   const url = `http://api.weatherapi.com/v1/current.json?key=f43ef82bc071498f80f220443250204&q=${location}`;
-
+  const urlForLongTerm = `https://api.weatherapi.com/v1/forecast.json?key=f43ef82bc071498f80f220443250204&q=${location}&days=5`;
   const searchLocation = (event) =>{
     if(event.key == 'Enter'){
-      axios.get(url).then((response) =>{
+      axios.get(urlForLongTerm).then((response) =>{
         setData(response.data);
         console.log(response.data);
       })
     }
   }
-
 
   return (
     <div className='App'>
@@ -49,8 +48,23 @@ function App() {
             </div>
           </div>
           <div className="bot">
+            <div className="headerbot">
+              {data.location ? <h2>Pogoda długoterminowa w {data.location.name}</h2> : null}
+            </div>
+          <div className="longtermweather">
               
+              {data.map(m =>{
+                return(
+                  <tr>
+                    <td>{m.location}</td>
+                  </tr>
+                )
+
+              })}
+              
+              </div>
           </div>
+
       </div>
     </div>
   )
