@@ -2,8 +2,9 @@
 *{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-
+.longtermweather tr{
+  text-align: center;
+}
 
 
 .app{

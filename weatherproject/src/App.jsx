@@ -6,7 +6,7 @@ import axios from 'axios'
 
 
 function App() {
-  const[data,setData] = useState('');
+  const[data,setData] = useState([]);
   const[location,setLocation] = useState('');
 
   let steps = 5;
@@ -52,19 +52,14 @@ function App() {
               {data.location ? <h2>Pogoda długoterminowa w {data.location.name}</h2> : null}
             </div>
           <div className="longtermweather">
-              
-              {data.map(m =>{
-                return(
-                  <tr>
-                    <td>{m.location}</td>
-                  </tr>
-                )
-
-              })}
-              
+          {data?.forecast?.forecastday?.map((m, i) => (
+            <tr>
+              <td>{m.date}</td>
+              <td>{m.day.avgtemp_c}°C</td>
+            </tr>
+          ))}
               </div>
           </div>
-
       </div>
     </div>
   )
