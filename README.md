@@ -6,6 +6,7 @@ Projekt wyświetla aktualną pogodę oraz prognozę długoterminową na podstawi
 
 
  Opis działania
+
 Aplikacja została napisana w React przy użyciu Vite
 po wpisaniu lokalizacji w pole tekstowe i wciśnięciu Enter, aplikacja wysyła zapytanie do WeatherAPI za pomocą axios, 
 zapisuje odpowiedź w stanie komponentu (useState), a następnie wyświetla aktualną pogodę (temperaturę, odczuwalną temperaturę, 
